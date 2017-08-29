@@ -1,0 +1,180 @@
+/* showdata.wxss */
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+.select_wrapper{
+  height: 150rpx;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.radiogroup{
+  height: 100%;
+  white-space: nowrap;
+}
+
+.radio{
+  display: inline-block;
+  height: 100%;
+  width: 200rpx;
+  background-color: white;
+  position: relative;
+}
+
+/* 设定选择器的样式 */
+radio{
+  width: 200rpx;
+  height: 150rpx;
+  position: relative;
+  visibility: hidden;
+}
+
+.label{
+  position: absolute;
+  width: 200rpx;
+  height: 100rpx;
+  top: 25rpx;
+  left: 0;
+  z-index: 299;
+  border-radius: 10rpx;
+}
+
+.label text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.active{
+  background-color: #3399cc;
+  color: white;
+}
+
+/* 展示区 */
+.show_wrap{
+  width: 750rpx;
+  background-color: white;
+  margin-top: 40rpx;
+}
+
+.tip_text{
+  width: 100%;
+  height: 60rpx;
+  text-align: right;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+    border-bottom: 1px solid #3399cc;
+
+}
+
+.tip_num{
+  display: inline-block;
+  color: #1296db;
+}
+
+.item_wrap{
+  width: 100%;
+  height: 160rpx;
+  position: relative;
+}
+.tip{
+  width: 20rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 5rpx;
+  top: 51rpx;
+  background-color: #1296db;
+}
+
+.name{
+  position: absolute;
+  top: 35rpx;
+  left: 45rpx;
+}
+
+.phone{
+  position: absolute;
+  bottom: 15rpx;
+  left: 45rpx;
+}
+
+.first{
+  position: absolute;
+  top: 25rpx;
+  right: 5rpx;
+}
+
+.team{
+  position: absolute;
+  bottom: 15rpx;
+  right: 5rpx;
+}
+
+.item_img{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0.5;
+}
+
+/* 详情页 */
+.complete{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 500;
+}
+
+.com_bg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 599;
+  background-color: black;
+  opacity: 0.4;
+}
+
+.com_showwrap{
+  width: 600rpx;
+  height: 1000rpx;
+  background-color: white;
+  position: absolute;
+  z-index: 699;
+  left: 75rpx;
+  top: 100rpx;
+  overflow-y: auto;
+}
+
+.com_name{
+  font-size: 50rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.com_sex{
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.com_phone{
+  text-align: center;
+  font-size: 42rpx;
+  margin-top: 30rpx;
+}
+
+.com_intro{
+  margin-top: 40rpx;
+  border-top: 1px solid #1296db;
+}
+
+.noshow{
+  display: none;
+}

@@ -1,0 +1,72 @@
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f8f8f8;
+}
+/**index.wxss**/
+.header_img{
+  width:100%;
+  height: 350rpx;
+
+}
+/*标题图片*/
+.header{
+  width: 100%;
+  height:350rpx;
+  font-size:14px;
+  background-color: white;
+}
+
+/*功能模块*/
+.control{
+  margin-top: 10rpx;
+  width:650rpx;
+  margin-left: 50rpx;
+}
+.text1{
+  width: 100%;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 44rpx;
+}
+
+/*功能小项*/
+.control_item{
+  display: inline-block;
+  width:300rpx;
+  height:230rpx;
+  text-align: center;
+  color: white;
+  background-color: white;
+  border-radius:30rpx;
+  margin: 35rpx 12rpx 20rpx 12rpx;
+  position: relative;
+}
+
+.control_item text{
+  line-height: 65rpx;
+  height: 65rpx;
+  background-color: white;
+  display: block;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  font-size: 35rpx;
+  color: #333;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+/*功能图片*/
+.control_img{
+  width: 300rpx;
+  height: 180rpx;
+  border-radius: 30rpx;
+}
+
+/* 不显示 */
+.noshow{
+  display: none;
+}

@@ -1,0 +1,69 @@
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+.header_img{
+  width:100%;
+  height: 200rpx;
+  position: relative;
+  top: 50rpx;
+}
+/*标题图片*/
+.header{
+  width: 100%;
+  height:350rpx;
+  background-color: #333;
+  font-size:14px;
+}
+
+/* 输入框 */
+.input_area{
+  width: 600rpx;
+  margin: 50rpx 0 75rpx 0;
+}
+
+.account,.pwd{
+  width: 600rpx;
+  height: 50px;
+  margin-left: 75rpx;
+  margin-top: 50rpx;
+  border: 1px solid #333;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  background-position: 10% 80%;
+}
+
+.account{
+  background: url('http://littleapp-1252360401.cosgz.myqcloud.com/user1.png') no-repeat;
+  background-position: 5% 50%;
+}
+
+.pwd{
+  background: url('http://littleapp-1252360401.cosgz.myqcloud.com/pwd1.png') no-repeat;
+    background-position: 5% 50%;
+}
+
+/* 输入区域 */
+.input{
+  width: 85%;
+  font-size: 48rpx;
+  height: 40px;
+  margin-left: 140rpx;
+  margin-top: 10rpx;
+}
+
+/* 登录按钮 */
+.login_button{
+  width: 600rpx;
+  margin-left: 75rpx;
+  margin-top: 50rpx;
+  text-align: center;
+  font-size: 48rpx;
+  background-color: #333;
+  color: #f1f1f1;
+  height: 50px;
+  line-height: 50px;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}

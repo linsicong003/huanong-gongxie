@@ -1,0 +1,45 @@
+/* myact.wxss */
+.act_title{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #1296db;
+  color: white;
+}
+
+.act_header{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: white;
+  border-top: 1px solid #1296db;
+  border-bottom:1px solid #1296db;
+}
+
+.act_item{
+  width: 100%;
+  background-color: white;
+  display: inline-block;
+}
+
+.show_wrap{
+  background-color: white;
+  width: 100%;
+}
+
+.member_text{
+  display: inline-block;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-indent: 35rpx;
+}
+
+.member_item{
+  width: 200rpx;
+  display: inline-block;
+  text-align: center;
+  line-height: 60rpx;
+  height: 60rpx;
+}

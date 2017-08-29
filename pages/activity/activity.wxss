@@ -1,0 +1,69 @@
+/* activity.wxss */
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+/**index.wxss**/
+.header_img{
+  width:100%;
+  height: 200rpx;
+  position: relative;
+  top: 50rpx;
+}
+/*标题图片*/
+.header{
+  width: 100%;
+  height:350rpx;
+  background-color: #333;
+  font-size:14px;
+}
+
+/* 小项包裹层 */
+.item_wrapper{
+  width: 100%;
+  height: 200rpx;
+  margin-top: 50rpx;
+}
+
+.item_header{
+  width: 100%;
+  background-color: #1296db;
+  color: white;
+  height: 60rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  line-height: 60rpx;
+}
+
+.text_wrap{
+  width: 720rpx;
+  margin-left: 15rpx;
+  height: 150rpx;
+  background-color: white;
+  position: relative;
+}
+
+.item_introduce{
+  width: 500rpx;
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+}
+
+.item_status{
+  width: 130rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 65rpx;
+  color: #1296db;
+}
+
+.end{
+  background-color: #ccc;
+  color: black;
+}
+.endtext{
+  color: black;
+}
+

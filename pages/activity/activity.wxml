@@ -1,0 +1,21 @@
+<!--activity.wxml-->
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+</view>
+
+<view class="item_wrapper" wx:for="{{activity}}" data-select="{{item.header}}" data-status="{{item.status}}" catchtap="fill">
+<!-- 标题 -->
+  <view class="item_header {{item.end}}">
+    {{item.header}}
+  </view>
+  <view class="text_wrap">
+  <!-- 简介 -->
+  <view class="item_introduce">
+  {{item.introduce}}
+  </view>
+  <!-- 状态 -->
+  <view class="item_status {{item.endtext}}">
+  {{item.status}}
+  </view>
+  </view>
+</view>

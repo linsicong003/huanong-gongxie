@@ -1,0 +1,97 @@
+<!--showdata.wxml-->
+<!-- 详细信息展示 -->
+<view class="complete {{detail}}">
+    <view class="com_bg">
+    </view>
+
+    <view class="com_showwrap" catchtap="hideit">
+        <view class="com_name">
+        {{complete.name}}
+        </view>
+
+        <view class="com_sex">
+        {{complete.sex}}
+        </view>
+
+        <view class="com_phone">
+        {{complete.phonecall}}
+        </view>
+
+        <view class="com_phone">
+        {{complete.college}}
+        </view>
+
+        <view class="com_phone">
+        {{complete.major}}
+        </view>
+
+        <view class="com_phone">
+        第一志愿：{{complete.first}}
+        </view>
+
+        <view class="com_phone">
+        第二志愿：{{complete.second}}
+        </view>
+
+        <view class="com_phone">
+        队伍：{{complete.team}}
+        </view>
+
+        <view class="com_intro">
+        {{complete.introduce}}
+        </view>
+    </view>
+</view>
+<!-- 滚动选择部门栏 -->
+<scroll-view class="select_wrapper" scroll-x="true">
+    <radio-group class="radiogroup" bindchange="doradio" data-type='group'>
+      <view class="radio" wx:for="{{items}}">
+      <label class="{{r_check==item.value?'active':''}} label">
+           <radio value="{{item.value}}" checked="{{item.checked}}"/>
+           <text>{{item.name}}</text>
+      </label>
+      </view>
+    </radio-group>
+</scroll-view>
+
+<scroll-view class="select_wrapper" scroll-x="true">
+    <radio-group class="radiogroup" bindchange="doradio"  data-type='team'>
+      <view class="radio" wx:for="{{high_items}}"> 
+           <label class="{{s_check==item.value?'active':''}} label">
+           <radio value="{{item.value}}" checked="{{item.checked}}"/>
+           <text>{{item.name}}</text>
+      </label>
+      </view>
+    </radio-group>
+</scroll-view>
+
+<view class="show_wrap">
+    <view class="tip_text">
+        已报名
+        <view class="tip_num">
+          {{tip_num}}
+        </view>
+        人
+    </view>
+
+    <view class="item_wrap" wx:for="{{result}}" data-name="{{item.name}}" data-phone="{{item.phonecall}}" catchtap="showdetail">
+      <view class="tip"></view>
+      <view class="name">
+        {{item.name}}
+      </view>
+
+      <view class="phone">
+        {{item.phonecall}}
+      </view>
+
+      <view class="first">
+        {{item.first}}
+      </view>
+
+      <view class="team">
+        {{item.team}}
+      </view>
+
+      <image src="http://littleapp-1252360401.cosgz.myqcloud.com/1082834235423687074.jpg" class="item_img" mode="scaleToFill"></image>
+    </view>
+</view>

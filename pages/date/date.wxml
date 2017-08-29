@@ -1,0 +1,80 @@
+<!--date.wxml-->
+<!-- 添加活动 -->
+<view class="add_act_wrap {{add}}">
+    <view class="add_bg">
+    </view>
+
+    <view class="add_wrap">
+      <view class="cancel" catchtap="canceladd">
+        <image src="http://littleapp-1252360401.cosgz.myqcloud.com/%E5%8F%96%E6%B6%88.png" class="cancel_img"></image>
+      </view>
+      <view class="add_first">
+          发布活动
+      </view>    
+        <view class="add_item">
+        <label>活动名</label>
+          <input  class="add_input" placeholder="你的活动名" bindinput="titleinput"/>
+        </view>
+
+        <view class="add_item">
+        <label>结束时间</label>
+        <input  class="add_input" placeholder="XXXX-XX-XX" bindinput="timeinput"/>
+        </view>
+
+        <view class="add_textarea">
+        <label>介绍</label>
+          <textarea  class="add_input" placeholder="这里是活动介绍" maxlength="60" bindinput="introduceinput"/>
+        </view>
+
+        <view class="add_submit" catchtap="addact">
+          确认发布
+        </view>
+    </view>
+</view>
+<!-- 头部 -->
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+</view>
+
+<view class="add_button" catchtap="showadd">
+    <image src="{{add_img}}" class="add_img"></image>
+</view>
+
+
+<view class="item_wrapper" wx:for="{{date}}" catchtap="fill">
+<!-- 标题 -->
+  <view class="item_header">
+  {{item.title}}
+  </view>
+  <view class="text_wrap">
+  <!-- 发起人和结束时间 -->
+  <view class="main_text">
+    <view class="from">
+    发起人:{{item.name}}
+    </view>
+
+    <view class="finish">
+    时间:{{item.finish}}
+    </view>
+  </view>
+  <!-- 简介 -->
+  <view class="item_introduce">
+  {{item.introduce}}
+  </view>
+  <!-- 状态和参加人数 -->
+  <view class="addtext">
+    <view class="item_num">
+    已有<text class="blue">{{item.join_num}}</text>人参加
+    </view>
+    <view class="item_status {{item.status == '进行中'?'blue':'red'}}">
+    {{item.status}}
+    </view>
+  </view>
+  
+  </view>
+
+  <!-- 功能按钮 -->
+  <view class="control_button {{item.status == '进行中'?'control_yes':'control_no'}}" data-d_id="{{item.id}}" data-status="{{item.status}}" data-join="{{item.join}}" catchtap="join">
+    {{item.join == 'yes'?'已参加':'我要参加'}}
+  </view>
+</view>

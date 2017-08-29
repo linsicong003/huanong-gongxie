@@ -1,0 +1,121 @@
+/* number.wxss */
+.select_wrapper{
+  height: 150rpx;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.radiogroup{
+  height: 100%;
+  white-space: nowrap;
+}
+
+.radio{
+  display: inline-block;
+  height: 100%;
+  width: 200rpx;
+  background-color: white;
+  position: relative;
+}
+
+/* 设定选择器的样式 */
+radio{
+  width: 200rpx;
+  height: 150rpx;
+  position: relative;
+  visibility: hidden;
+}
+
+.label{
+  position: absolute;
+  width: 200rpx;
+  height: 150rpx;
+  top: 0;
+  left: 0;
+  z-index: 299;
+  border-radius: 10rpx;
+}
+
+.label text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.active{
+  background-color: #3399cc;
+  color: white;
+}
+
+/* 通讯录展示区 */
+.showbox{
+  min-width: 750rpx;
+  background-color: white;
+  margin-top: 40rpx;
+  position: relative;
+  padding-top: 25px;
+}
+
+.showbox_img{
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 30rpx;
+  top: -20rpx;
+}
+
+.showbox_item{
+  min-width: 750rpx;
+  height: 90rpx;
+  padding: 20rpx 0;
+  white-space: nowrap;
+}
+
+/* 具体条目距离 */
+.s_name{
+  display: inline-block;
+  width: 170rpx;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+}
+
+.s_long{
+  display: inline-block;
+  width: 250rpx;
+  line-height: 90rpx;
+}
+
+.s_short{
+  display: inline-block;
+  width: 150rpx;
+  line-height: 90rpx;
+}
+
+/* 控制区 */
+.control_box{
+  display: inline-block;
+  width: 200rpx;
+}
+
+.control_img{
+  width: 48rpx;
+  height: 48rpx;
+  position: relative;
+  top: 10rpx;
+}
+
+.control_l{
+  display: inline-block;
+  padding-right: 40rpx;
+  border-right: 1px solid #1296db;
+}
+
+.control_s{
+  display: inline-block;
+  padding:0 40rpx;
+}
+
+.left{
+    color: #1296db;
+}

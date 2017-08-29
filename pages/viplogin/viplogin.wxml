@@ -1,0 +1,18 @@
+<!--viplogin.wxml-->
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+</view>
+
+<view class="input_area">
+  <view class="account">
+      <input type="text" bindinput="account_input" class="input" placeholder="Account"/>
+  </view>
+
+  <view class="pwd">
+      <input type="password" bindinput="pwd_input" class="input" placeholder="Password"/>
+  </view>
+
+  <view class="login_button" catchtap="user_login">
+     登录
+  </view>
+</view>

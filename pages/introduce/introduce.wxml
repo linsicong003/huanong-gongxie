@@ -1,0 +1,30 @@
+<!--introduce.wxml-->
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+</view>
+
+<view class="text1">
+  华南农业大学公共关系协会
+</view>
+
+<view class="text1">
+Public Relation Association of SCAU
+</view>
+
+<view class="main_wrap">
+<view class="main_block">
+自发成立、自主管理、非营利性的学生群众性组织。重视公关知识文化传播，努力塑造社团“家”文化氛围。专业化、严谨化、学术化的公益实践类协会
+</view>
+<view class="main_text">
+传公关知识之髓
+</view>
+
+<view class="main_text">
+承“家”文化之魂
+</view>
+
+<view class="main_text">
+塑公协形象之美
+</view>
+
+</view>

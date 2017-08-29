@@ -1,0 +1,147 @@
+/* fill.wxss */
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+.picker{
+  height: 60rpx;
+  color: #1296db;
+}
+/**index.wxss**/
+.header_img{
+  width:100%;
+  height: 200rpx;
+  position: relative;
+  top: 50rpx;
+}
+/*标题图片*/
+.header{
+  width: 100%;
+  height:350rpx;
+  background-color: #333;
+  font-size:14px;
+  position: relative;
+}
+
+.header text{
+  font-size: 36rpx;
+  position: absolute;
+  bottom: 30rpx;
+  left: 50%;
+  color: white;
+  transform: translateX(-50%);
+}
+
+/* 信息填充区 */
+.main_wrap{
+  width: 700rpx;
+  margin-left: 25rpx;
+  background-color: white;
+  font-size: 36rpx;
+}
+
+.main_wrap label{
+  height: 60rpx;
+}
+
+.main_item{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.main_input{
+  width: 500rpx;
+  height:60rpx;
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin-top: 20rpx;
+}
+
+.item_text{
+  line-height: 100rpx;
+  margin-right: 30rpx;
+  height: 100rpx;
+  float: left;
+  margin-left: 30rpx;
+}
+
+.item_select{
+  float: left;
+}
+
+/* 介绍 */
+.introduce{
+  height: 400rpx;
+  background-color: white;
+
+}
+
+.textarea{
+  border:1px solid #ccc;
+  height: 250rpx;
+  top: 100rpx;
+  left: 26rpx;
+  padding: 10rpx;
+  width: 600rpx;
+}
+
+.submit{
+  width: 626rpx;
+  height: 100rpx;
+  margin-left: 26rpx;
+  background-color: #1296db;
+  color: white;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.selectimg{
+  background: url('http://littleapp-1252360401.cosgz.myqcloud.com/%E4%B8%8B%E7%AE%AD%E5%A4%B4-%E5%9C%86%E5%BD%A2.png') no-repeat;
+  background-position: 50% 50%;
+}
+
+/* 多选队伍 */
+.checkbox_wrap{
+  height: 400rpx; 
+}
+
+.checkbox_text{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 30rpx;
+}
+
+.checkbox_intro{
+  height: 100rpx;
+  line-height: 100rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200rpx;
+  z-index: 399;
+}
+
+.checkbox_item{
+  width: 200rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #1296db;
+  display: inline-block;
+  position: relative;
+  margin-left: 20rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.checkbox_select{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: relative;
+  z-index: 499;
+}
+
+.show{
+  background:url('http://littleapp-1252360401.cosgz.myqcloud.com/%E5%AF%B9%E5%8B%BE%E5%B0%8F.png') no-repeat;
+  background-position: 100% 20%;
+}

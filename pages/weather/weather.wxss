@@ -1,0 +1,59 @@
+.wrapper{
+  width:100%;
+  height:100%;
+  box-sizing: border-box;
+  position: absolute;/*绝对定位*/
+  top: 0;
+  left:0;
+  padding: 50rpx;/*内填充*/
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;/*字体家族*/
+}
+
+.now{
+  height: 600rpx;
+  color:#fff;
+  font-size:0.85em;/*字体大小*/
+  display: flex;
+  flex-direction: column;/*纵向*/
+}
+.tmp{
+  font-size: 5em;/*字体大小*/
+}
+
+.bg{
+  height: 700rpx;
+  width: 750rpx;
+}
+.now-exp{
+  display: flex;
+  flex-direction: row;/*横向*/
+  justify-content: space-around;
+}
+.now-tmp{
+  flex-grow: 1;/*表示剩余的空间都分配给该元素*/
+}
+.item-val{
+  font-size: 2em;
+  text-align: center
+}
+.item-sp{
+  border: 1rpx solid #fff;
+}
+
+.type-img{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle
+}
+
+.forecast{
+  margin-top:50rpx 
+}
+
+.cast-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ccc;
+  padding: 40rpx 0;
+}

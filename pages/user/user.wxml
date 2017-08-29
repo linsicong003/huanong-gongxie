@@ -1,0 +1,16 @@
+ <view class="mainwrapper">
+  <!-- <view class="user_img">
+      <image src="{{user_avatarurl}}" class="img" mode="scaleToFill"></image>
+  </view>
+
+  <view class="user_name">
+      {{user_name}}
+  </view>  -->
+  <view class="user_header">
+      <image src="../image/header.jpg" class="user_img"></image>
+  </view>
+
+  <view class="myact" catchtap="myact">
+      我的活动
+  </view>
+</view>

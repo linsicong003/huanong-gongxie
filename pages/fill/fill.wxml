@@ -1,0 +1,74 @@
+<!--fill.wxml-->
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+  <text>公协人才招募计划</text>
+</view>
+
+<view class="main_wrap">
+  <view class="main_item">
+    <view class="item_text">姓名</view>
+    <input type="text" class="main_input" id="name" bindinput="input"/>
+  </view>
+
+  <view class="main_item">
+    <view class="item_text">性别</view>
+    <text class="item_text">男</text>
+    <switch type="switch" color="#1296db" class="item_select" bindchange="sexselect"/>
+    <text class="item_text">女</text>
+  </view>
+
+  <view class="main_item">
+    <view class="item_text">电话</view>
+    <input type="text" class="main_input" bindinput="input" id="cell_num"/>
+  </view>
+
+  <view class="main_item">
+    <view class="item_text">学院</view>
+    <input type="text" class="main_input" bindinput="input" id="college"/>
+  </view>
+
+  <view class="main_item">
+    <view class="item_text">专业</view>
+    <input type="text" class="main_input" bindinput="input" id="major"/>
+  </view>
+
+  <view class="main_item selectimg">
+    <view class="item_text">第一志愿</view>
+    <picker range="{{wanted}}" value="{{first}}" bindchange="firstselect">
+          <view class="picker">{{wanted[first]}}</view>
+    </picker>
+  </view>
+
+  <view class="main_item selectimg">
+    <view class="item_text">第二志愿</view>
+    <picker range="{{wanted}}" value="{{second}}" bindchange="secondselect">
+      <view class="picker">{{wanted[second]}}</view>
+    </picker>
+  </view>
+
+  <view class="checkbox_wrap">
+    <view class="checkbox_text">队伍志愿 (可多选)</view>
+      <checkbox-group bindchange="checkboxchange">
+        <view class="checkbox_item" wx:for="{{t_select}}">
+            <view class="checkbox_intro {{item.check=='checked'?'show':''}}">
+              {{item.name}}
+            </view>
+
+        <checkbox value="{{item.value}}" checked="{{item.check}}" class="checkbox_select"/>
+        </view>
+      </checkbox-group>
+    <!-- <picker range="{{t_select}}" value="{{team}}" bindchange="teamselect">
+      <view class="picker">{{t_select[team]}}</view>
+    </picker> -->
+  </view>
+
+
+  <view class="introduce">
+    <view class="item_text">介绍一下自己吧</view>
+    <textarea placeholder="介绍一下自己吧，不超过120字" maxlength="130"  class="textarea" bindinput="textareainput"/>
+  </view>
+
+  <view class="submit" catchtap="submit">
+      提交
+  </view>
+</view>

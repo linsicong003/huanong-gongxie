@@ -1,0 +1,45 @@
+/* introduce.wxss */
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+}
+/**index.wxss**/
+.header_img{
+  width:100%;
+  height: 200rpx;
+  position: relative;
+  top: 50rpx;
+}
+/*标题图片*/
+.header{
+  width: 100%;
+  height:350rpx;
+  background-color: #333;
+  font-size:14px;
+}
+
+.text1{
+  width: 100%;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+
+.main_wrap{
+  width: 100%;
+  background-color: white;
+}
+
+.main_text{
+  width: 100%;
+  text-align: center;
+  margin-top: 50rpx;
+}
+
+.main_block{
+  width: 650rpx;
+  text-align: center;
+  margin-left: 50rpx;
+}

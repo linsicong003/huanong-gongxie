@@ -1,0 +1,36 @@
+<!--number.wxml-->
+<!-- 滚动选择部门栏 -->
+<scroll-view class="select_wrapper" scroll-x="true">
+    <radio-group class="radiogroup" bindchange="doradio">
+      <view class="radio" wx:for="{{items}}">
+      <label class="{{r_check==item.value?'active':''}} label">
+           <radio value="{{item.value}}" checked="{{item.checked}}"/>
+           <text>{{item.name}}</text>
+      </label>
+      </view>
+    </radio-group>
+</scroll-view>
+
+<!-- 通讯录展示区 -->
+<view class="showbox">
+    <image src="http://littleapp-1252360401.cosgz.myqcloud.com/showbox.png" class="showbox_img"></image>
+    <scroll-view class="showbox_item" scroll-x="true" wx:for="{{result}}">
+       <text class="s_name"> {{item.name}} </text>
+       <text class="s_name"> <text class="left">|</text>{{item.job}}  </text>
+       <text class="s_long"> {{item.longnum}} </text>
+       <!-- <text class="s_short"> {{item.shortnum}} </text> -->
+       <text class="s_long"> {{item.bir}}</text>
+
+       <view class="control_box">
+          <view class="control_l">
+              CALL 
+              <image src="http://littleapp-1252360401.cosgz.myqcloud.com/makecall.png" class="control_img" catchtap="makelong"  data-long="{{index}}"></image>
+          </view>
+
+          <!-- <view class="control_s">
+              S
+              <image src="http://littleapp-1252360401.cosgz.myqcloud.com/makecall.png" class="control_img" catchtap="makeshort" data-short="{{index}}"></image>
+          </view> -->
+       </view>
+    </scroll-view>
+</view>

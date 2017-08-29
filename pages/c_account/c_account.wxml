@@ -1,0 +1,59 @@
+<!--c_account.wxml-->
+<view class="main_wrap">
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+</view>
+    <!-- 选项标签 -->
+    <view class="tab_wrap {{tip_show}}">
+        <!-- 提示文字 -->
+        <view class="tip_text">
+            你好！{{tip_name}}
+        </view>
+        <!-- 注销选项 -->
+        <view class="cancel_tap" catchtap="cancel">
+            注销账号
+        </view>
+        <!-- 修改密码 -->
+        <view class="cancel_tap" catchtap="change">
+            修改密码
+        </view>
+    </view>
+
+    <!-- 修改密码 -->
+    <view class="rule_text {{pw_show}}">
+            <view>密码规范：</view>
+            <view>1.长度在6-9位</view>
+            <view>2.需包含英文和数字</view>
+
+            <view class="submit return" catchtap="r_change">
+              返回
+            </view>
+
+    </view>
+    <view class="change_wrap {{pw_show}}">
+        <view class="n_pw">
+            <view class="input_text">
+                原密码:
+            </view>
+            <input class="pw_input" password='true' maxlength="9" bindinput="oldinput"/>
+        </view>
+
+        <view class="n_pw">
+            <view class="input_text">
+                新密码:
+            </view>
+            <input class="pw_input" password='true' maxlength="9" bindinput="newinput1" />
+        </view>
+
+        <view class="n_pw">
+            <view class="input_text">
+                再确认:
+            </view>
+            <input class="pw_input" password='true' maxlength="9" bindinput="newinput2" />
+        </view>
+
+           <view class="submit" catchtap="submit_change">
+              确认修改
+            </view>
+    </view>
+</view>

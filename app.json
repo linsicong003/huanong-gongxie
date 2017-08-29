@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/weather/weather",
+    "pages/viplogin/viplogin",
+    "pages/number/number",
+    "pages/introduce/introduce",
+    "pages/activity/activity",
+    "pages/date/date",
+    "pages/fill/fill",
+    "pages/myact/myact",
+    "pages/c_account/c_account",
+    "pages/showdata/showdata"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": ""
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "selectedColor": "#000",
+    "color": "#333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "pages/image/home.png",
+        "selectedIconPath": "pages/image/home1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/image/user.png",
+        "selectedIconPath": "pages/image/user1.png"
+      }
+    ]
+  }
+}

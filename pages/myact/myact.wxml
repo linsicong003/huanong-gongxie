@@ -1,0 +1,22 @@
+<!--myact.wxml-->
+<view class="main_wrap">
+  <view class="act_title">
+  查看我的活动
+  </view>
+  <view wx:for="{{act}}">
+      <view class="act_header">
+        {{item.title}}
+      </view>
+
+      <view class="show_wrap">
+      <view class="member_text">
+        参加人:
+      </view>
+
+      <view class="member_item" wx:for="{{item.member}}" wx:for-item="congtou">
+            {{congtou}}
+      </view>
+
+      </view>
+  </view>
+</view>

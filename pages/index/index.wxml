@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="header">
+  <image src="{{main_img}}" class="header_img"  mode="aspectFit"/>
+</view>
+
+<view class="control">
+<!-- 功能区 -->
+           <view class="control_item item1" catchtap="introduce">
+          <image src="{{introduce_img}}" class="control_img"></image>
+          <text>{{introduce}}</text>
+          </view>
+          <view class="control_item item2" catchtap="gofill">
+          <image src="{{chat_img}}" class="control_img"></image>
+          <text>{{fill}}</text>
+          </view>
+           <view class="control_item item4" bindtap="goweather">
+            <image src="{{weather_img}}" class="control_img"></image>
+            <text>{{weather}}</text>
+            </view> 
+          <!-- 我要登录 -->
+          <view class="control_item item2 {{viploginshow}}" catchtap="viplogin">
+          <image src="{{viplogin_img}}" class="control_img"></image>
+          <text>{{viplogin}}</text>
+          </view>
+            <view class="control_item item3 {{vipshow}}" catchtap="shownum">
+            <image src="{{call_img}}" class="control_img"></image>
+            <text>{{call}}</text>
+            </view>
+
+            <view class="control_item {{vipshow}}" catchtap="showdate">
+                  <image src="{{date_img}}" class="control_img"></image>
+                  <text>{{date}}</text>
+            </view>
+
+            <view class="control_item {{vipshow}}" catchtap="showfill">
+                  <image src="{{new_img}}" class="control_img"></image>
+                  <text>{{showdata}}</text>
+            </view>
+
+            <view class="control_item {{vipshow}}" catchtap="changeaccount">
+                  <image src="{{control_img}}" class="control_img"></image>
+                  <text>{{changeaccount}}</text>
+            </view>
+</view>
