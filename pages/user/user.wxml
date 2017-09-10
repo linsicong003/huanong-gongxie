@@ -1,4 +1,11 @@
- <view class="mainwrapper">
+
+
+
+
+ 
+ 
+ 
+      <view class="mainwrapper">
   <!-- <view class="user_img">
       <image src="{{user_avatarurl}}" class="img" mode="scaleToFill"></image>
   </view>
@@ -12,5 +19,9 @@
 
   <view class="myact" catchtap="myact">
       我的活动
+  </view>
+
+  <view class="myact" catchtap="searchact">
+      查询录取
   </view>
 </view>

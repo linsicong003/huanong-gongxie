@@ -14,8 +14,106 @@ Page({
       {value:'xuanchuanbu',name:'宣传部'},
       {value:'renzibu',name:'人资部'}
     ],
-    r_check:'huizhang'
+    r_check:'huizhang',
+    a_text:'',
+    a_show:'noshow'
   },
+  answer:function(e){
+      this.setData({
+        a_text:e.detail.value
+      })
+  },
+  fillback:function(e){
+    if(this.data.a_show == 'noshow'){
+      this.setData({
+        a_show: ''
+      })
+    }else{
+      this.setData({
+        a_show: 'noshow'
+      })
+    }
+  },
+  a_submit:function(e){
+    const that = this;
+    const server = getApp().data.server;
+    let tp = new Date();
+    let status = 1;
+
+    if(wx.getStorageSync('l_limit')){
+      if(tp.getTime() > wx.getStorageSync('l_limit')){
+        //超过限制期限
+        status = 2;
+      }else{
+        //在拒绝期限内，函数结束
+        status = 3;
+      }
+    }else{
+      //第一次请求
+      status = 1;
+    }
+
+    let a_text = that.data.a_text;
+    let name = wx.getStorageSync('name').substring(2);
+    console.log(tp.getTime());
+    if(a_text == ''){
+      wx.showModal({
+        title: '提示',
+        content: '您好像什么都没填哦~',
+        showCancel:false,
+        confirmText:'我知道了',
+        success:function(res){
+          return false;
+        }
+      })
+    }
+    else if(status == 3){
+      wx.showModal({
+        title: '提示',
+        content: '休息一下再点吧~',
+        showCancel: false,
+        confirmText: '我知道了',
+        success: function (res) {
+          return false;
+        }
+      })
+    }
+    else{
+      // 加载动画
+      if (typeof (wx.showLoading) != 'undefined') {
+        wx.showLoading({
+          title: '正在提交服务器..',
+          mask: true
+        })
+      } else {
+        wx.showToast({
+          title: '请更新微信版本！！',
+        })
+      }
+      let info = {name:name,text:a_text};
+      //提交服务器
+      wx.request({
+        url: server +'feedback',
+        data:info,
+        method:'POST',
+        success:function(res){
+          if(res.data == 'success'){
+            wx.showToast({
+              title: '反馈提交啦~',
+            })
+            wx.setStorage({
+              key: 'l_limit',
+              data: tp.getTime()+60000,
+            })
+            that.setData({
+              a_show: 'noshow'
+            })
+          }
+        }
+      })
+    }
+  },
+
   //选择部门处理事件
   doradio:function(e){
     let that = this;
@@ -30,7 +128,7 @@ Page({
       if (typeof (wx.showLoading) != 'undefined'){
         wx.showLoading({
           title: '努力加载中',
-          mask:true
+          mask: true
         })
       }else{
         wx.showToast({
@@ -88,6 +186,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '通讯录',
+    })
     let that = this;
     let info = {'type':'huizhang'};
     const server = getApp().data.server;
@@ -98,9 +199,6 @@ Page({
     wx.removeStorage({ key: 'wenyubu' });
     wx.removeStorage({ key: 'renzibu' });
     wx.removeStorage({ key: 'xuanchuanbu' });
-    wx.setNavigationBarTitle({
-      title: '通讯录',
-    })
     // 加载动画
     if (typeof(wx.showLoading )!= 'undefined') {
       wx.showLoading({

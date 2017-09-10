@@ -13,6 +13,11 @@
           <image src="{{chat_img}}" class="control_img"></image>
           <text>{{fill}}</text>
           </view>
+          <!-- 视频 -->
+          <view class="control_item item2" catchtap="govideo">
+          <image src="{{video_img}}" class="control_img"></image>
+          <text>{{video}}</text>
+          </view>
            <view class="control_item item4" bindtap="goweather">
             <image src="{{weather_img}}" class="control_img"></image>
             <text>{{weather}}</text>

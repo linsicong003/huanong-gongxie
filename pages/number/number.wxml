@@ -13,19 +13,33 @@
 
 <!-- 通讯录展示区 -->
 <view class="showbox">
-    <image src="http://littleapp-1252360401.cosgz.myqcloud.com/showbox.png" class="showbox_img"></image>
+    <image src="http://littleapp-1252360401.cosgz.myqcloud.com/showbox.png" class="showbox_img" catchtap="fillback"></image>
+    <text class="img_text" catchtap="fillback">信息有误？</text>
+    <!-- 问题反馈 -->
+    <view class="answer_wrap {{a_show}}">
+        <view class="answer_text">
+          写下你的问题吧:
+        </view>
+
+        <textarea placeholder="请清楚描述您想要反馈的问题~方便管理员哥哥进行处理  : )" class="answser_textarea" bindinput="answer" placeholder-class="t_style" maxlength="120"/>
+
+        <view class="answer_submit" catchtap="a_submit">
+            提交反馈
+        </view>
+    </view>
     <scroll-view class="showbox_item" scroll-x="true" wx:for="{{result}}">
        <text class="s_name"> {{item.name}} </text>
-       <text class="s_name"> <text class="left">|</text>{{item.job}}  </text>
+       <text class="left">|</text>
+       <text class="s_name"> {{item.job}}  </text>
        <text class="s_long"> {{item.longnum}} </text>
        <!-- <text class="s_short"> {{item.shortnum}} </text> -->
-       <text class="s_long"> {{item.bir}}</text>
 
        <view class="control_box">
           <view class="control_l">
-              CALL 
               <image src="http://littleapp-1252360401.cosgz.myqcloud.com/makecall.png" class="control_img" catchtap="makelong"  data-long="{{index}}"></image>
           </view>
+
+          <text class="s_long"> {{item.bir}}</text>
 
           <!-- <view class="control_s">
               S

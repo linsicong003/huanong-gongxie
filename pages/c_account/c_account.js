@@ -26,6 +26,7 @@ Page({
   },
   cancel:function(e){
       const that = this;
+      const name = wx.getStorageSync('name').substring(2);
       wx.showModal({
         title: '注销登录',
         content: '您即将注销'+name+'的账号',

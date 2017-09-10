@@ -19,7 +19,7 @@ page{
 .header{
   width: 100%;
   height:350rpx;
-  background-color: #333;
+  background-color: black;
   font-size:14px;
   position: relative;
 }
@@ -39,6 +39,8 @@ page{
   margin-left: 25rpx;
   background-color: white;
   font-size: 36rpx;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .main_wrap label{
@@ -144,4 +146,28 @@ page{
 .show{
   background:url('http://littleapp-1252360401.cosgz.myqcloud.com/%E5%AF%B9%E5%8B%BE%E5%B0%8F.png') no-repeat;
   background-position: 100% 20%;
+}
+
+/* 提示字 */
+.tip_wrap{
+  margin: 30rpx 0 10rpx 30rpx;
+  font-size:30rpx;
+  color:#1296db;
+}
+
+.tip_text{
+  margin-top: 5rpx;
+}
+
+.item_2{
+  height: 200rpx;
+}
+
+.input_2{
+  width: 602rpx;
+  margin-left: 30rpx;
+}
+
+.red{
+  color: red;
 }

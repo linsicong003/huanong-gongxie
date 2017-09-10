@@ -4,6 +4,16 @@
   <text>公协人才招募计划</text>
 </view>
 
+<view class='tip_wrap'>
+    <view class='tip_text'>
+      ·  在<text class="red">截止时间前</text>仍可提交修改
+    </view>
+
+    <view class='tip_text'>
+      ·  面试时需携带两张<text class="red">一寸彩照</text>
+    </view>
+</view>
+
 <view class="main_wrap">
   <view class="main_item">
     <view class="item_text">姓名</view>
@@ -22,6 +32,11 @@
     <input type="text" class="main_input" bindinput="input" id="cell_num"/>
   </view>
 
+    <view class="main_item">
+    <view class="item_text">邮箱</view>
+    <input type="text" class="main_input" bindinput="input" id="mail"/>
+  </view>
+
   <view class="main_item">
     <view class="item_text">学院</view>
     <input type="text" class="main_input" bindinput="input" id="college"/>
@@ -30,6 +45,21 @@
   <view class="main_item">
     <view class="item_text">专业</view>
     <input type="text" class="main_input" bindinput="input" id="major"/>
+  </view>
+
+  <view class="main_item">
+    <view class="item_text">宿舍</view>
+    <input type="text" class="main_input" bindinput="input" id="dorm"/>
+  </view>
+
+  <view class="main_item item_2">
+    <view class="item_text">曾经担任的职位</view>
+    <input type="text" class="main_input input_2" bindinput="input" id="job"/>
+  </view>
+
+  <view class="main_item item_2">
+    <view class="item_text">特长/兴趣爱好</view>
+    <input type="text" class="main_input input_2" bindinput="input" id="favor"/>
   </view>
 
   <view class="main_item selectimg">
@@ -46,7 +76,7 @@
     </picker>
   </view>
 
-  <view class="checkbox_wrap">
+  <!-- <view class="checkbox_wrap">
     <view class="checkbox_text">队伍志愿 (可多选)</view>
       <checkbox-group bindchange="checkboxchange">
         <view class="checkbox_item" wx:for="{{t_select}}">
@@ -57,15 +87,17 @@
         <checkbox value="{{item.value}}" checked="{{item.check}}" class="checkbox_select"/>
         </view>
       </checkbox-group>
-    <!-- <picker range="{{t_select}}" value="{{team}}" bindchange="teamselect">
-      <view class="picker">{{t_select[team]}}</view>
-    </picker> -->
-  </view>
+  </view> -->
 
 
   <view class="introduce">
     <view class="item_text">介绍一下自己吧</view>
-    <textarea placeholder="介绍一下自己吧，不超过120字" maxlength="130"  class="textarea" bindinput="textareainput"/>
+    <textarea placeholder="介绍一下自己吧，不超过120字" maxlength="130"  class="textarea" bindinput="input" id='introduce'/>
+  </view>
+
+  <view class="introduce">
+    <view class="item_text">公协吸引你的地方</view>
+    <textarea placeholder="哪里得知的公协？为什么会选择加入？" maxlength="130"  class="textarea" bindinput="input" id='like'/>
   </view>
 
   <view class="submit" catchtap="submit">

@@ -1,23 +1,25 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/search/search",
+    "pages/number/number",
     "pages/user/user",
     "pages/weather/weather",
     "pages/viplogin/viplogin",
-    "pages/number/number",
-    "pages/introduce/introduce",
+    "pages/showdata/showdata",
     "pages/activity/activity",
     "pages/date/date",
+    "pages/introduce/introduce",
     "pages/fill/fill",
+    "pages/video/video",
     "pages/myact/myact",
-    "pages/c_account/c_account",
-    "pages/showdata/showdata"
+    "pages/c_account/c_account"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#333",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle": ""
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": ""
   },
   "tabBar": {
     "borderStyle": "white",

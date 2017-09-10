@@ -16,7 +16,7 @@ page{
 .header{
   width: 100%;
   height:350rpx;
-  background-color: #333;
+  background-color: black;
   font-size:14px;
 }
 
@@ -26,20 +26,51 @@ page{
   text-align: center;
 }
 
+.text2{
+  font-size: 46rpx;
+}
+
 
 .main_wrap{
   width: 100%;
   background-color: white;
+  font-size: 28rpx;
+  letter-spacing: 4rpx;
+  overflow: hidden;
 }
 
-.main_text{
+.item_wrap{
+  width: 700rpx;
+  margin-left: 25rpx;
+  margin-top: 40rpx;
+}
+
+.item_title{
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  right: 12rpx;
+}
+
+.item_img{
+  width: 750rpx;
+  height: 374rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.img{
   width: 100%;
-  text-align: center;
-  margin-top: 50rpx;
+  height: 100%;
 }
 
-.main_block{
-  width: 650rpx;
+.join_button{
+  margin: 30rpx 20rpx 30rpx 0;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #1296db;
+  color: white;
   text-align: center;
-  margin-left: 50rpx;
+  float: right;
 }

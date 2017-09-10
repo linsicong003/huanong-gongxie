@@ -9,7 +9,8 @@ Page({
     new_title:'',
     new_time:'',
     new_introduce:'',
-    add:''
+    add:'',
+    click:'no'
   },
 
   /**
@@ -73,9 +74,6 @@ Page({
                 that.setData({
                   date: result
                 })
-                if (wx.hideLoading()) {
-                  wx.hideLoading();
-                }
                 //获取已参加活动
                 let name = wx.getStorageSync('name').substring(2);
                 let info = { name: name }
@@ -160,9 +158,6 @@ Page({
           that.setData({
             date: result
           })
-          if (wx.hideLoading()) {
-            wx.hideLoading();
-          }
           //获取已参加活动
           let name = wx.getStorageSync('name').substring(2);
           let info = { name: name }
@@ -225,6 +220,9 @@ Page({
         }
       }
     })
+    if (wx.hideLoading()) {
+      wx.hideLoading();
+    }
   },
   //活动名输入
   titleinput:function(e){
@@ -249,7 +247,7 @@ Page({
     let time = that.data.new_time;
     let introduce = that.data.new_introduce;
     let name = wx.getStorageSync('name').substring(2);
-    let datetest = /\d{4}-\d{2}-\d{2}/;
+    let datetest = /^\d{4}-(0?[1-9]|1[0-2])-((0?[1-9])|((1|2)[0-9])|30|31)$/;
 
     if(title==''||time==''||introduce==''){
       wx.showModal({
@@ -296,9 +294,6 @@ Page({
               title: '取消发布！',
               success:function(e){
                 that.setData({
-                  new_title: '',
-                  new_time: '',
-                  new_introduce: '',
                   add: ''
                 })
               }
@@ -319,53 +314,76 @@ Page({
     })
   },
   join:function(e){
-    console.log(e);
     const that = this;
     const op = e.currentTarget.dataset;
     const server = getApp().data.server;
     let name = wx.getStorageSync('name').substring(2);
     let d_id = op.d_id;
-    console.log(name);
 
-    if(op.status == '已结束'){
-      wx.showToast({
-        title: '活动已结束',
+    if(that.data.click == 'no'){
+      that.setData({
+        click:'yes'
       })
-      return false;
-    }else if(op.join == 'yes'){
-      wx.showToast({
-        title: '您已参加！',
-      })
-      return false;
-    }
-    else{
-      wx.showModal({
-        title: '参加活动1',
-        content: '尊敬的'+name+',确定参加该活动吗？',
-        cancelText:'不参加',
-        confirmText:'参加',
-        success:function(res){
-          if(res.confirm){
-            let info = {id:d_id,name:name};
-            wx.request({
-              url: server+'join',
-              data:info,
-              method:'POST',
-              success:function(res){
-                console.log(res);
-                if(res){
-                  wx.showToast({
-                    title: '参加成功！',
-                  })
-                }
-              }
-            })
-          }else{
-            wx.showToast({
-              title: '取消成功!',
+      if (op.status == '已结束') {
+        wx.showToast({
+          title: '活动已结束',
+          success:function(){
+            that.setData({
+              click:'no'
             })
           }
-        }
+        })
+        return false;
+      } else if (op.join == 'yes') {
+        wx.showToast({
+          title: '您已参加！',
+          success:function () {
+            that.setData({
+              click: 'no'
+            })
+          }
+        })
+        return false;
+      }
+      else {
+        wx.showModal({
+          title: '参加活动1',
+          content: '尊敬的' + name + ',确定参加该活动吗？',
+          cancelText: '不参加',
+          confirmText: '参加',
+          success: function (res) {
+            if (res.confirm) {
+              let info = { id: d_id, name: name };
+              wx.request({
+                url: server + 'join',
+                data: info,
+                method: 'POST',
+                success: function (res) {
+                  console.log(res);
+                  if (res) {
+                    wx.showToast({
+                      title: '参加成功！',
+                    })
+                  }
+                }
+              })
+            } else if(res.cancel) {
+              wx.showToast({
+                title: '取消成功!',
+              })
+            }
+          }
+        })
+        that.setData({
+          click:'no'
+        })
+      }
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '请不用频繁点击！',
+        showCancel:false,
+        confirmText:'我知道了'
       })
     }
   },

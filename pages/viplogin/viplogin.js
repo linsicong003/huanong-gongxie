@@ -45,45 +45,6 @@ Page({
         'Content-type': 'application/json'
       },
       success:function(res){
-        //如果请求502
-        if (res.statusCode == 502){
-          wx.request({
-            url: server+'user_login',
-            data: post_mes,
-            method: 'POST',
-            header: {
-              'Content-type': 'application/json'
-            },
-            success:function(res){
-              //再次请求操作
-              if (res.data == 'login1') {
-                console.log('loginok');
-                wx.setStorageSync('viplogin', 'yes');
-                //提示登陆成功
-                wx.showToast({
-                  title: '登录成功',
-                  mask: true,
-                  complete: function () {
-                    //两秒后隐藏提示框并自动跳转回首页
-                    wx.setStorageSync('name', e_account);
-                    wx.switchTab({
-                      url: '../index/index',
-                      success: function () {
-                        console.log('nav');
-                      }
-                    })
-                  }
-                })
-              }
-              //登录失败
-              else if (res.data == 'login2') {
-                wx.showToast({
-                  title: '账号/密码错误!',
-                });
-              }
-            }
-          })
-        }else{
           if(res.data == 'login1'){
             console.log('loginok');
             wx.setStorageSync('viplogin','yes');
@@ -93,11 +54,21 @@ Page({
               mask:true,
               complete:function(){
                 //两秒后隐藏提示框并自动跳转回首页
-                wx.setStorageSync('name', e_account);
-                wx.switchTab({
-                  url: '../index/index',
-                  success: function () {
-                    console.log('nav');
+                let mes = {name:e_account,openid:e_openid};
+                wx.request({
+                  url: server+'user_login',
+                  data:mes,
+                  method:'GET',
+                  success:function(r){
+                    console.log(r);
+                    wx.setStorageSync('group', r.data[0].group);
+                    wx.setStorageSync('name', e_account);
+                    wx.switchTab({
+                      url: '../index/index',
+                      success: function () {
+                        console.log('nav');
+                      }
+                    })
                   }
                 })
               }
@@ -109,7 +80,6 @@ Page({
               title: '账号/密码错误!',
             });
           }
-        }
       }
     })
   },

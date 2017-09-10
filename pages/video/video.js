@@ -1,43 +1,65 @@
-// user.js
+// pages/video/video.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    v_id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-      wx.getUserInfo({
+      const that = this;
+      const server = getApp().data.server;
+      wx.setNavigationBarTitle({
+        title: '公协视频',
+      })
+      // 加载动画
+      if (typeof (wx.showLoading) != 'undefined') {
+        wx.showLoading({
+          title: '努力加载中',
+          mask: true
+        })
+      } else {
+        wx.showToast({
+          title: '请更新微信版本！！',
+        })
+      }
+      wx.request({
+        url: server+'getvideo',
+        data:[],
+        method:'GET',
         success:function(res){
+          console.log(res);
           that.setData({
-            user_name:res.userInfo.nickName,
-            user_avatarurl:res.userInfo.avatarUrl
+            result:res.data
           })
+          if (wx.hideLoading()) {
+            wx.hideLoading();
+          }
         }
       })
+
+  
   },
-  myact:function(e){
-    wx.navigateTo({
-      url: '../myact/myact',
-    })
-  },
-  searchact:function(e){
-    wx.navigateTo({
-      url: '../search/search',
-    })
+  play:function(e){
+    console.log(e);
+    const that = this;
+
+    that.videoContext = wx.createVideoContext(e.currentTarget.id);
+    // 加载动画
+    console.log(that.videoContext);
+    that.videoContext.requestFullScreen();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**

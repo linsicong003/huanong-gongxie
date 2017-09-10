@@ -1,0 +1,50 @@
+<!--pages/search/search.wxml-->
+<view class='main_wrap'>
+    <view class='header_wrap'>
+        <view class='h_title'>
+            录取查询
+        </view>
+
+        <view class='h_icon'>
+            <image src='../image/header.jpg' class='h_img'></image>
+        </view>
+    </view>
+
+    <view class='body_wrap'>
+      <view class='item_wrap'>
+          <view class='item_text'>
+            姓名 :
+          </view>
+
+          <view class='item_input'>
+            <input class='input' bindinput='input' value="{{s_name}}" id='s_name'></input>
+          </view>
+      </view>
+
+      <view class='item_wrap'>
+          <view class='item_text'>
+            号码 :
+          </view>
+
+          <view class='item_input'>
+            <input class='input' bindinput='input' value="{{s_num}}" id='s_num'></input>
+          </view>
+      </view>
+    </view>
+
+    <view class='item_wrap'>
+        <view class='item_button' catchtap='gosearch'>
+            查询
+        </view>
+    </view>
+
+    <view class="result_wrap {{r_show?'':'noshow'}}">
+        <view class='r_title'>
+            录取结果:
+        </view>
+
+        <view class='r_body'>
+            {{r_text}}
+        </view>
+    </view>
+</view>

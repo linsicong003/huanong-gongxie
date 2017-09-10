@@ -15,7 +15,7 @@ page{
 .header{
   width: 100%;
   height:350rpx;
-  background-color: #333;
+  background-color: black;
   font-size:14px;
 }
 
@@ -56,8 +56,7 @@ page{
 }
 
 .text_wrap{
-  width: 720rpx;
-  margin-left: 15rpx;
+  width: 750rpx;
   background-color: white;
   min-height: 200rpx;
 }
@@ -102,13 +101,16 @@ page{
 }
 
 .control_button{
-  width: 710rpx;
-  margin-left: 20rpx;
-  height: 50rpx;
-  line-height: 50rpx;
+  width: 240rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   text-align: center;
   border-bottom-left-radius: 5rpx;
   border-bottom-right-radius: 5rpx;
+  margin: 60rpx 0;
+  position: relative;
+  left:10rpx;
+  bottom: 20rpx;
 }
 
 .control_yes{
@@ -182,34 +184,62 @@ page{
 
 .add_item{
   margin-top: 40rpx;
-  font-size: 46rpx;
+  font-size: 42rpx;
   padding: 0 20rpx;
 }
 
 .add_textarea{
-  font-size: 46rpx;
-  height: 180rpx;
+  font-size: 42rpx;
+  height: 200rpx;
   margin-top: 40rpx;
   padding: 0 20rpx;
-  border-bottom: 1px solid #1296db;
+}
+
+.add_item label,.add_textarea label{
+  margin-left: 10rpx;
 }
 
 .add_input{
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top:10rpx;
   width: 100%;
   font-size: 36rpx;
   color: #1296db;
+  border-left: 1px solid #1296db;
+  padding-left: 10rpx;
+}
+
+.add_t{
+  height: 120rpx;
+  margin-top:10rpx;
+  width: 100%;
+  font-size: 36rpx;
+  color: #1296db;
+  border-left: 1px solid #1296db;
+  padding-left: 10rpx;
 }
 
 .add_submit{
-  width: 100%;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-bottom: 20rpx;
   height: 80rpx;
   background-color: #1296db;
   color: white;
   text-align: center;
   line-height: 80rpx;
   font-size: 42rpx;
+}
+
+.placeholder{
+  font-size: 30rpx;
+  color: #c3c3c3;
+}
+
+.placeholder_t{
+  font-size: 30rpx;
+  color: #c3c3c3;
 }
 
 .show{

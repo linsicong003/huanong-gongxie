@@ -25,16 +25,17 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    const server = getApp().data.server;
     wx.setNavigationBarTitle({
       title: '报名',
     })
     wx.request({
-      url: 'https://www.linsicong.cn/fill_list',
+      url: server+'fill_list',
       method:'GET',
       success:function(res){
         if (res.statusCode == '502'){
           wx.request({
-            url: 'https://www.linsicong.cn/fill_list',
+            url: server+'fill_list',
             method:'GET',
             success:function(res){
               if(res.statusCode == '502'){

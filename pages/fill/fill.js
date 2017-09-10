@@ -25,14 +25,38 @@ Page({
     cell_num:'',
     college:'',
     major:'',
-    sex:''
+    sex:'',
+    dorm:'',
+    job:'',
+    like:'',
+    favor:'',
+    mail:'',
+    click:'no'
       },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
+    const that = this;
+    const server = getApp().data.server;
+    let u_id = wx.getStorageSync('userid');
+
+    //获取是否已经报名
+    wx.request({
+      url: server + 'newfill',
+      method: 'GET',
+      data: { 'openid': u_id },
+      success: function (e) {
+        console.log(e);
+        if (e.data.length > 0) {
+          wx.setStorageSync('newfill', 'yes');
+        } else {
+          wx.setStorageSync('newfill', 'no');
+        }
+      }
+    });
+  wx.setNavigationBarTitle({
       title: '',
     })
   },
@@ -49,11 +73,6 @@ Page({
   teamselect:function(e){
     this.setData({
       team:e.detail.value
-    })
-  },
-  textareainput:function(e){
-    this.setData({
-      introduce:e.detail.value
     })
   },
   input:function(e){
@@ -114,104 +133,162 @@ Page({
   },
   //提交
   submit:function(e){
-    let info = { 'openid': wx.getStorageSync('userid'), 'name': this.data.name, 'team':this.data.select_arr.join(' '),'sex': this.data.sex, 'cell': this.data.cell_num, 'college': this.data.college, 'major': this.data.major, 'first': this.data.wanted[this.data.first], 'second': this.data.wanted[this.data.second], 'introduce': this.data.introduce };
+    const that = this;
     const server = getApp().data.server;
-    wx.setStorageSync('newf', '0');
-    if(wx.getStorageSync('newfill') == 'yes'){
-      wx.showModal({
-        title: '您已报名！',
-        content: '您已经完成报名！如需更改点击更改重新填写',
-        cancelColor:'#1296db',
-        confirmText:'更改',
-        confirmColor:'red',
-        success:function(res){
-          if(res.confirm){
-            //更改报名信息
-            wx.request({
-              url: server+'updatefill',
-              method: 'POST',
-              data: info,
-              success: function (res) {
-                if (res.statusCode == 502) {
-                  wx.showToast({
-                    title: '修改成功!',
-                  })
-                  wx.switchTab({
-                    url: '../index/index',
-                  })
-                } else if (res.data == 'success') {
-                  wx.showToast({
-                    title: '修改成功!',
-                  })
-                  wx.switchTab({
-                    url: '../index/index',
-                  })
-                }
-              }
-            })
-          }else if(res.cancel){
-            return false;
-          }
-        }
+    let u_id = wx.getStorageSync('userid');
+    if(this.data.click == 'no'){
+      that.setData({
+        click:'yes'
       })
-    }else{
-      console.log(info);
-      for (let k in info) {
-        if (!info[k]) {
-          wx.setStorageSync('newf', '1');
-          wx.showModal({
-            title: '检查',
-            content: '信息输入不完全，请完整输入',
-            showCancel:false,
-            confirmText: '我知道了',
-            confirmColor: '#1296db',
-            success: function (res) {
-              if(res.confirm){
-                return false;
-              }
-            }
-          })
-          console.log('不完全');
-        }
+      // 加载动画
+      if (typeof (wx.showLoading) != 'undefined') {
+        wx.showLoading({
+          title: '火速连接服务器',
+          mask: true
+        })
+      } else {
+        wx.showToast({
+          title: '请更新微信版本！！',
+        })
       }
-      console.log(wx.getStorageSync('newf'));
-      if(wx.getStorageSync('newf') == '0'){
-        wx.request({
-          url: server+'newfill',
-          method: 'POST',
-          data: info,
+      let sel_team = this.data.select_arr.toString().split(',');
+      let info = { 'openid': wx.getStorageSync('userid'), 
+                  'name': this.data.name,             
+                  'sex': this.data.sex, 
+                  'cell': this.data.cell_num, 
+                  'college': this.data.college, 
+                  'major': this.data.major, 
+                  'first': this.data.wanted[this.data.first], 
+                  'second': this.data.wanted[this.data.second], 
+                  'introduce': this.data.introduce,
+                  'dorm':this.data.dorm,
+                  'job':this.data.job,
+                  'like':this.data.like,
+                  'favor':this.data.favor,
+                  'mail':this.data.mail 
+                  };
+      console.log(info);
+      wx.setStorageSync('newf', '0');
+      if (wx.getStorageSync('newfill') == 'yes') {
+        if (wx.hideLoading()) {
+          wx.hideLoading();
+        }
+        wx.showModal({
+          title: '您已报名！',
+          content: '您已经完成报名！如需更改点击更改重新填写',
+          cancelColor: '#1296db',
+          confirmText: '更改',
+          confirmColor: '#ff0033',
           success: function (res) {
-            console.log(res);
-            if (res.statusCode == '502') {
-              wx.setStorageSync('newfill', 'yes');
-              wx.showToast({
-                title: '报名成功！工作人员将会在稍后与您取得联系！',
-                mask:true,
-                success: function () {
-                  setTimeout(function(){
+            if (res.confirm) {
+              that.setData({
+                click: 'no'
+              })
+              //更改报名信息
+              wx.request({
+                url: server + 'updatefill',
+                method: 'POST',
+                data: info,
+                success: function (res) {
+                  if (res.statusCode == 502) {
+                    wx.showToast({
+                      title: '修改成功!',
+                    })
                     wx.switchTab({
                       url: '../index/index',
                     })
-                  },2000)
-                }
-              })
-            } else if (res.data == 'success') {
-              wx.setStorageSync('newfill', 'yes');
-              wx.showToast({
-                title: '报名成功！工作人员将会在稍后与您取得联系！',
-                mask:true,
-                success: function () {
-                  setTimeout(function () {
+                  } else if (res.data == 'success') {
+                    wx.showToast({
+                      title: '修改成功!',
+                    })
                     wx.switchTab({
                       url: '../index/index',
                     })
-                  }, 2000)
+                  }
                 }
               })
+            } else if (res.cancel) {
+              that.setData({
+                click: 'no'
+              })
+              console.log('cancel');
             }
           }
         })
+      } else {
+        console.log(info);
+        for (let k in info) {
+          if (!info[k]) {
+            if (wx.hideLoading()) {
+              wx.hideLoading();
+            }
+            wx.setStorageSync('newf', '1');
+            wx.showModal({
+              title: '检查',
+              content: '信息输入不完全，请完整输入',
+              showCancel: false,
+              confirmText: '我知道了',
+              confirmColor: '#1296db',
+              success: function (res) {
+                if (res.confirm) {
+                  return false;
+                }else if(res.cancel){
+                }
+                that.setData({
+                  click: 'no'
+                })
+              }
+            })
+            console.log('不完全');
+          }
+        }
+        console.log(wx.getStorageSync('newf'));
+        if (wx.getStorageSync('newf') == '0') {
+          wx.request({
+            url: server + 'newfill',
+            method: 'POST',
+            data: info,
+            success: function (res) {
+              console.log(res);
+              if (res.statusCode == '502') {
+                that.setData({
+                  click: 'no'
+                })
+                wx.setStorageSync('newfill', 'yes');
+                wx.showToast({
+                  title: '报名成功！',
+                  mask: true,
+                  success: function () {
+                    setTimeout(function () {
+                      wx.switchTab({
+                        url: '../index/index',
+                      })
+                    }, 2000)
+                  }
+                })
+              } else if (res.data == 'success') {
+                that.setData({
+                  click: 'no'
+                })
+                wx.setStorageSync('newfill', 'yes');
+                wx.showToast({
+                  title: '报名成功！',
+                  mask: true,
+                  success: function () {
+                    setTimeout(function () {
+                      wx.switchTab({
+                        url: '../index/index',
+                      })
+                    }, 2000)
+                  }
+                })
+              }
+            }
+          })
+        }
       }
+    }else{
+      return false;
     }
   },
 

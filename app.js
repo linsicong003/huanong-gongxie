@@ -1,11 +1,11 @@
 //app.js
 App({
   data:{
-    server:'https://www.linsicong.cn/'
+    server:'#'
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据
-    let server = 'https://www.linsicong.cn/';
+    let server = '#';
 
     wx.checkSession({
       success: function () {

@@ -3,7 +3,7 @@
   <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
 </view>
 
-<view class="text1">
+<view class="text1 text2">
   华南农业大学公共关系协会
 </view>
 
@@ -12,19 +12,68 @@ Public Relation Association of SCAU
 </view>
 
 <view class="main_wrap">
-<view class="main_block">
-自发成立、自主管理、非营利性的学生群众性组织。重视公关知识文化传播，努力塑造社团“家”文化氛围。专业化、严谨化、学术化的公益实践类协会
-</view>
-<view class="main_text">
-传公关知识之髓
-</view>
+    <view class="item_wrap">
+        <view class="item_title">
+          【我们是谁】
+        </view>
 
-<view class="main_text">
-承“家”文化之魂
-</view>
+        <view class="item_body">
+          华南农业大学公共关系协会成立于2000年的4月，是华南农业大学团委社团联合会指导下华南农业大学最大的协会之一，在华南农业大学有极大的影响力。
+        </view>
+    </view>
 
-<view class="main_text">
-塑公协形象之美
-</view>
+    <view class="item_wrap">
+        <view class="item_title">
+          【宗旨是】
+        </view>
 
+        <view class="item_body">
+          传公关知识之髓
+        </view>
+        <view class="item_body">
+          承“家”文化之魂
+        </view>
+        <view class="item_body">
+          塑公协形象之美
+        </view>
+    </view>
+
+    <view class="item_wrap">
+        <view class="item_title">
+          【做了什么】
+        </view>
+
+        <view class="item_body">
+          协会有计划，有成效地举办各类公关、礼仪知识讲座、举办公关形象大赛及校内校际大学生联谊会等活动。
+        </view>
+
+        <view class="item_body">
+          为会员们全面的培养和成材创造良好的条件,给了会员一个将公关理论用于实践的机会。
+        </view>
+        
+    </view>
+
+    <view class="item_wrap">
+        <view class="item_title">
+          【部门介绍】
+        </view>
+    </view>
+
+    <view class="item_img" wx:for="{{img_introduce}}">
+            <image src="{{item.src}}" mode="scaleToFill" class="img"/>
+    </view>
+
+    <view class="item_wrap">
+        <view class="item_body">
+          更多详情请关注公众号 SCAU公协 推文~
+        </view>
+
+        <view class="item_body">
+          点击右下角快速报名~
+        </view>
+    </view>
+
+    <view class="join_button" catchtap="goact">
+        加入我们
+    </view>
 </view>

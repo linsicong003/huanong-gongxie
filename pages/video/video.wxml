@@ -1,0 +1,23 @@
+<!--pages/video/video.wxml-->
+<view class="header">
+  <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
+</view>
+
+<block>
+  <view class="video_item" wx:for="{{result}}">
+  <!-- 视频组件部分 -->
+  <view class="video_wrap">
+    <video id="{{item.v_id}}" class="video" src="{{item.src}}" poster="{{item.img_src}}" controls bindplay="play"></video>
+  </view>
+  <!-- 文字描述部分 -->
+  <view class="text_wrap">
+      <view class="text_title">
+        {{item.title}}
+      </view>
+
+      <view class="text_body">
+        {{item.introduce}}
+      </view>
+  </view>
+  </view>
+</block>

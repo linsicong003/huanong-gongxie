@@ -13,7 +13,7 @@ page{
 .header{
   width: 100%;
   height:350rpx;
-  background-color: #333;
+  background-color: black;
   font-size:14px;
 }
 
@@ -60,10 +60,17 @@ page{
   margin-top: 50rpx;
   text-align: center;
   font-size: 48rpx;
-  background-color: #333;
-  color: #f1f1f1;
+  background-color: #1296db;
+  color: white;
   height: 50px;
   line-height: 50px;
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
 }
+/* 
+提示字 */
+.tip_wrap{
+  margin: 50rpx 0 40rpx 75rpx;
+  font-size:32rpx;
+}
+

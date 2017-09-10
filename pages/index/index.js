@@ -7,16 +7,17 @@ Page({
   data: {
     vipshow:'noshow',
     viploginshow:'',
-    main_img:'http://littleapp-1252360401.cosgz.myqcloud.com/header.jpg',
+    main_img:'http://littleapp-1252360401.cosgz.myqcloud.com/header1.jpg',
     //功能
-    introduce_img:'http://littleapp-1252360401.cosgz.myqcloud.com/tab1.jpg',
-    chat_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab2.jpg',
-    weather_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab3.jpg',
-    viplogin_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab4.jpg',
-    call_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab5.jpg',
-    date_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab6.jpg',
-    new_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab7.jpg',
-    control_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/tab8.jpg',
+    introduce_img:'http://littleapp-1252360401.cosgz.myqcloud.com/but1.jpg',
+    chat_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but2.jpg',
+    weather_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but3.jpg',
+    viplogin_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but4.jpg',
+    call_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but5.jpg',
+    date_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but6.jpg',
+    new_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but7.jpg',
+    control_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but8.jpg',
+    video_img: 'http://littleapp-1252360401.cosgz.myqcloud.com/but9.jpg',
     login_img:main_url,
     userInfo:{},
     //功能信息
@@ -28,6 +29,7 @@ Page({
     viplogin:'我是会员',
     date:'约去浪吧',
     showdata:'查看新生',
+    video:'一点视频',
     changeaccount:'账户管理',
     //滑块配置
     indicatorDots: true,
@@ -69,6 +71,11 @@ Page({
       url: '../activity/activity',
     })
   },
+  govideo:function(){
+    wx.navigateTo({
+      url: '../video/video',
+    })
+  },
   showdate:function(){
     wx.navigateTo({
       url: '../date/date',
@@ -91,6 +98,11 @@ Page({
           vipshow:'',
           viploginshow:'noshow'
         })
+    }else{
+      this.setData({
+          vipshow: 'noshow',
+          viploginshow: ''
+      })
     }
   }
 })

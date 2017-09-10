@@ -3,6 +3,16 @@
   <image src="http://littleapp-1252360401.cosgz.myqcloud.com/logo.png" class="header_img"  mode="aspectFit"/>
 </view>
 
+<view class='tip_wrap'>
+    <view class='tip_text'>
+      ·  本登录为内部人员通道
+    </view>
+
+    <view class='tip_text'>
+      ·  暂不开放注册
+    </view>
+</view>
+
 <view class="input_area">
   <view class="account">
       <input type="text" bindinput="account_input" class="input" placeholder="Account"/>

@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarBackgroundColor": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "天气预报",
+  "backgroundTextStyle": "light"
+}

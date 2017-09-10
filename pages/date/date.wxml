@@ -13,17 +13,17 @@
       </view>    
         <view class="add_item">
         <label>活动名</label>
-          <input  class="add_input" placeholder="你的活动名" bindinput="titleinput"/>
+          <input  class="add_input" placeholder="你的活动名" bindinput="titleinput" placeholder-class="placeholder"/>
         </view>
 
         <view class="add_item">
         <label>结束时间</label>
-        <input  class="add_input" placeholder="XXXX-XX-XX" bindinput="timeinput"/>
+        <input  class="add_input" placeholder="XXXX-XX-XX" bindinput="timeinput"  placeholder-class="placeholder"/>
         </view>
 
         <view class="add_textarea">
         <label>介绍</label>
-          <textarea  class="add_input" placeholder="这里是活动介绍" maxlength="60" bindinput="introduceinput"/>
+          <textarea  class="add_t" placeholder="这里是活动介绍" maxlength="60" bindinput="introduceinput"  placeholder-class="placeholder_t"/>
         </view>
 
         <view class="add_submit" catchtap="addact">
@@ -50,11 +50,11 @@
   <!-- 发起人和结束时间 -->
   <view class="main_text">
     <view class="from">
-    发起人:{{item.name}}
+    发起人: {{item.name}}
     </view>
 
     <view class="finish">
-    时间:{{item.finish}}
+    时间: {{item.finish}}
     </view>
   </view>
   <!-- 简介 -->
@@ -70,11 +70,11 @@
     {{item.status}}
     </view>
   </view>
-  
-  </view>
 
-  <!-- 功能按钮 -->
+    <!-- 功能按钮 -->
   <view class="control_button {{item.status == '进行中'?'control_yes':'control_no'}}" data-d_id="{{item.id}}" data-status="{{item.status}}" data-join="{{item.join}}" catchtap="join">
     {{item.join == 'yes'?'已参加':'我要参加'}}
+  </view>
+  
   </view>
 </view>

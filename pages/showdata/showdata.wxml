@@ -1,44 +1,164 @@
 <!--showdata.wxml-->
 <!-- 详细信息展示 -->
 <view class="complete {{detail}}">
-    <view class="com_bg">
+    <view class="com_bg" catchtap="hideit">
     </view>
 
-    <view class="com_showwrap" catchtap="hideit">
+    <view class='com_button' catchtap="com_show" >
+        {{!change?'信息':'操作'}}
+    </view>
+
+    <view class="com_showwrap">
+        <!-- 提示语 -->
+        <view class="status_cg {{!change?'':'noshow'}}">
+            状态变更
+        </view>
+        <!-- 状态处理区 -->
+        <view class="code_wrap {{!change?'':'noshow'}}">
+              <radio-group data-type='group' bindchange='doselect'>
+                 <view class="com_radio" wx:for="{{codes}}">
+                    <label class="{{status_select==item.value?'select':''}} com_label" >
+                       <radio value="{{item.value}}" checked="{{item.checked}}" class='com_radio'/>
+                    <text class='com_text'>{{item.name}}</text>
+                   </label>
+                 </view>
+              </radio-group>
+        </view>
+        <!-- 提示语 -->
+        <view class="status_cg cg_2 {{!change?'':'noshow'}}">
+            状态备忘录
+        </view>
+
+        <view class="com_ta_wrap  {{!change?'':'noshow'}}">
+            <textarea class='com_ta' bindinput="note" placeholder='留下改变状态时的想法吧/记录面试评价' placeholder-class='com_ph' maxlength='120' fixed='true'></textarea>
+        </view>
+
+        <view class="com_submit {{!change?'':'noshow'}}" catchtap='submit'>
+            提交更改
+        </view>
+
         <view class="com_name">
-        {{complete.name}}
+        {{complete.name}} · 
+        <text wx:if="{{complete.code == 1}}">待处理</text>
+        <text wx:if="{{complete.code == 2}}">已通知</text>
+        <text wx:if="{{complete.code == 3}}">已录取</text> 
+        <text wx:if="{{complete.code == 4}}">已回绝</text>
+        </view>
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            性别：
+          </view>  
+          <view class="com_body">
+              {{complete.sex}}
+          </view>
         </view>
 
-        <view class="com_sex">
-        {{complete.sex}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            电话：
+          </view>
+          <view class="com_body">
+              {{complete.phonecall}}
+          </view>
         </view>
 
-        <view class="com_phone">
-        {{complete.phonecall}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            邮箱：
+          </view>
+          <view class="com_body">
+              {{complete.mail}}
+          </view>
         </view>
 
-        <view class="com_phone">
-        {{complete.college}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            宿舍：
+          </view>
+          <view class="com_body">
+              {{complete.dorm}}
+          </view>
         </view>
 
-        <view class="com_phone">
-        {{complete.major}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            学院：
+          </view>
+          <view class="com_body">
+              {{complete.college}}
+          </view>
         </view>
 
-        <view class="com_phone">
-        第一志愿：{{complete.first}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            专业：
+          </view>
+          <view class="com_body">
+              {{complete.major}}
+          </view>
         </view>
 
-        <view class="com_phone">
-        第二志愿：{{complete.second}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            第一志愿：
+          </view>
+          <view class="com_body">
+              {{complete.first}}
+          </view>
         </view>
 
-        <view class="com_phone">
-        队伍：{{complete.team}}
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            第二志愿：
+          </view>
+          <view class="com_body">
+              {{complete.second}}
+          </view>
         </view>
 
-        <view class="com_intro">
-        {{complete.introduce}}
+        <!-- <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            队伍：
+          </view>
+          <view class="com_body">
+              {{complete.team}}
+          </view>
+        </view> -->
+
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            曾任：
+          </view>
+          <view class="com_body">
+              {{complete.job}}
+          </view>
+        </view>        
+
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+            爱好：
+          </view>
+          <view class="com_body">
+              {{complete.favor}}
+          </view>
+        </view>
+
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+              自我介绍：
+          </view>
+          <view class="long_body">
+              {{complete.introduce}}
+          </view>
+        </view>
+
+        <view class="com_wrap {{change?'':'noshow'}}">
+          <view class='com_title'>
+              为什么来：
+          </view>
+          <view class="long_body">
+              {{complete.like}}
+          </view>
         </view>
     </view>
 </view>
@@ -54,10 +174,21 @@
     </radio-group>
 </scroll-view>
 
-<scroll-view class="select_wrapper" scroll-x="true">
+<!-- <scroll-view class="select_wrapper" scroll-x="true">
     <radio-group class="radiogroup" bindchange="doradio"  data-type='team'>
       <view class="radio" wx:for="{{high_items}}"> 
            <label class="{{s_check==item.value?'active':''}} label">
+           <radio value="{{item.value}}" checked="{{item.checked}}"/>
+           <text>{{item.name}}</text>
+      </label>
+      </view>
+    </radio-group>
+</scroll-view> -->
+
+<scroll-view class="select_wrapper" scroll-x="true">
+    <radio-group class="radiogroup" bindchange="doradio"  data-type='code'>
+      <view class="radio" wx:for="{{codes_items}}"> 
+           <label class="{{c_check==item.value?'active':''}} label">
            <radio value="{{item.value}}" checked="{{item.checked}}"/>
            <text>{{item.name}}</text>
       </label>
@@ -74,10 +205,14 @@
         人
     </view>
 
-    <view class="item_wrap" wx:for="{{result}}" data-name="{{item.name}}" data-phone="{{item.phonecall}}" catchtap="showdetail">
+    <view class="item_wrap" wx:for="{{result}}" data-name="{{item.name}}" data-phone="{{item.phonecall}}" data-code="{{item.code}}" catchtap="showdetail">
       <view class="tip"></view>
       <view class="name">
-        {{item.name}}
+        {{item.name}} |
+        <text wx:if="{{item.code == 1}}" class='blue'>待处理</text>
+        <text wx:if="{{item.code == 2}}" class='blue'>已通知</text>
+        <text wx:if="{{item.code == 3}}" class='blue green'>已录取</text>
+        <text wx:if="{{item.code == 4}}" class='blue red'>已回绝</text>
       </view>
 
       <view class="phone">
@@ -89,7 +224,7 @@
       </view>
 
       <view class="team">
-        {{item.team}}
+        {{item.dorm}}
       </view>
 
       <image src="http://littleapp-1252360401.cosgz.myqcloud.com/1082834235423687074.jpg" class="item_img" mode="scaleToFill"></image>

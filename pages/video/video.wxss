@@ -1,0 +1,61 @@
+/* pages/video/video.wxss */
+page{
+  display: block;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+/**index.wxss**/
+.header_img{
+  width:100%;
+  height: 200rpx;
+  position: relative;
+  top: 50rpx;
+}
+/*标题图片*/
+.header{
+  width: 100%;
+  height:350rpx;
+  background-color: black;
+  font-size:14px;
+}
+
+/* 视频项 */
+.video_item{
+  width: 750rpx;
+  margin: 50rpx 0;
+  position: relative;
+}
+
+.video{
+  width: 100%;
+  height: 100%;
+}
+
+.video_wrap{
+  display: inline-block;
+  width: 270rpx;
+  height: 180rpx;
+  margin-left: 30rpx
+}
+
+.text_wrap{
+  display: inline-block;
+  width: 425rpx;
+  margin-left: 25rpx;
+  height: 200rpx;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+.text_title{
+  font-size: 36rpx;
+  height: 50rpx;
+  width: 425rpx;
+}
+.text_body{
+  height: 130rpx;
+  width: 425rpx;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color:#999;
+}

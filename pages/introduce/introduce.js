@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    img_introduce:[
+      { 'name': '学术部', 'src':'http://littleapp-1252360401.cosgz.myqcloud.com/xsb.jpg'},
+      { 'name': '办公室', 'src':'http://littleapp-1252360401.cosgz.myqcloud.com/bgs.jpg'},
+      { 'name': '文娱部', 'src':'http://littleapp-1252360401.cosgz.myqcloud.com/wyb.jpg'},
+      { 'name': '外联部', 'src':'http://littleapp-1252360401.cosgz.myqcloud.com/wlb.jpg'},
+      { 'name': '人资部', 'src':'http://littleapp-1252360401.cosgz.myqcloud.com/rzb.jpg'},
+      { 'name': '宣传部', 'src':'http://littleapp-1252360401.cosgz.myqcloud.com/xcb.jpg'}
+      ]
   },
 
   /**
@@ -13,6 +20,11 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+  goact:function(e){
+    wx.redirectTo({
+      url: '../activity/activity',
+    })
   },
 
   /**
